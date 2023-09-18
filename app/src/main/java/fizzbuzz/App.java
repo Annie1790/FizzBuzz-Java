@@ -4,17 +4,57 @@
 package fizzbuzz;
 
 public class App {
-    public static void fizzbuzz() {
-        for (int i = 1; i <= 100; i++) {
-            if (i % 3 == 0 && i % 5 == 0) {
-                System.out.println("FizzBuzz");
-            } else if (i % 5 == 0) {
-                System.out.println("Buzz");
-            } else if (i % 3 == 0) {
-                System.out.println("Fizz");
-            } else {
-                System.out.println(i);
+
+    public static void printSeven(int number) {
+        if (number % 7 == 0) {
+            System.out.print("Bang");
+        }
+    }
+
+    public static void printEleven(int number) {
+        if (number % 11 == 0) {
+            System.out.print("Bong");
+        }
+    }
+
+    public static void printThirteenToFront(int number) {
+        if (number % 13 == 0) {
+            if (number % 7 == 0 | number % 11 == 0 | number % 5 == 0) {
+                System.out.print("Fezz");
             }
+        }
+    }
+
+    public static void printThirteenToBack(int number) {
+        if (number % 13 == 0) {
+            if (number % 3 == 0 | number % 11 == 0) {
+                System.out.print("Fezz");
+            } else {
+                return;
+            }
+        }
+    }
+
+    public static void fizzbuzz() {
+        for (int i = 195; i <= 200; i++) {
+            printThirteenToFront(i);
+            printEleven(i);
+                if (i % 3 == 0 && i % 5 == 0) {
+                    printSeven(i);
+                    System.out.print("Fizz");
+                    printThirteenToBack(i);
+                    System.out.print("Buzz");
+                } else if (i % 5 == 0) {
+                    printSeven(i);
+                    System.out.println("Buzz");
+                    printThirteenToBack(i);
+                } else if (i % 3 == 0) {
+                    printSeven(i);
+                    System.out.println("Fizz");
+                    printThirteenToBack(i);
+                } else {
+                    System.out.println(i);
+                }
         }
     }
 
